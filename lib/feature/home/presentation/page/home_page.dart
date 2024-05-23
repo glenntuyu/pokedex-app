@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:pokedex_app/core/core.dart';
@@ -61,8 +60,9 @@ class _HomePageState extends State<HomePage> {
 
   AppBar _appBar() {
     return AppBar(
+      leading: const BackButton(), 
       title: Text(
-        'LaMov',
+        'Pokedex',
         style: context.titleMedium?.copyWith(
           fontWeight: FontWeight.bold,
         ),
@@ -70,41 +70,6 @@ class _HomePageState extends State<HomePage> {
       centerTitle: true,
       leadingWidth: 40,
       automaticallyImplyLeading: false,
-      actions: [
-        _notificationIcon(),
-      ],
-      leading: _profileAvatar(),
-    );
-  }
-
-  Widget _notificationIcon() {
-    return Container(
-      height: 26,
-      width: 26,
-      margin: const EdgeInsets.only(right: 16),
-      child: SvgPicture.asset(
-        'assets/icon/notification.svg',
-        fit: BoxFit.fitWidth,
-        colorFilter: const ColorFilter.mode(
-          Colors.white,
-          BlendMode.srcIn,
-        ),
-      ),
-    );
-  }
-
-  Widget _profileAvatar() {
-    return Transform.translate(
-      offset: const Offset(16, 0),
-      child: CircleAvatar(
-        radius: 32,
-        backgroundColor: Colors.transparent,
-        child: SvgPicture.asset(
-          'assets/avatar/profile.svg',
-          height: 32,
-          width: 32,
-        ),
-      ),
     );
   }
 

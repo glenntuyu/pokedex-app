@@ -11,8 +11,9 @@
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import '../../core/data/network/api_client.dart' as _i3;
-import 'core.injection.dart' as _i4;
+import '../../core/data/network/api_client.dart' as _i4;
+import '../../feature/home/presentation/cubit/home_cubit.dart' as _i3;
+import 'core.injection.dart' as _i5;
 
 extension GetItInjectableX on _i1.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -26,9 +27,10 @@ extension GetItInjectableX on _i1.GetIt {
       environmentFilter,
     );
     final coreInjectionModule = _$CoreInjectionModule();
-    gh.lazySingleton<_i3.ApiClient>(() => coreInjectionModule.apiClient);
+    gh.factory<_i3.HomeCubit>(() => _i3.HomeCubit());
+    gh.lazySingleton<_i4.ApiClient>(() => coreInjectionModule.apiClient);
     return this;
   }
 }
 
-class _$CoreInjectionModule extends _i4.CoreInjectionModule {}
+class _$CoreInjectionModule extends _i5.CoreInjectionModule {}
