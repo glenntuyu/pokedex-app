@@ -6,6 +6,13 @@ extension StringExtension on String? {
   }
 }
 
+extension StringExtension2 on String {
+  String getParam(String param) {
+    Uri uri = Uri.dataFromString(this);
+    return uri.queryParameters[param] ?? '';
+  }
+}
+
 String removeTrailingZero(double n) {
   final formatter = NumberFormat()
     ..minimumFractionDigits = 0
@@ -13,3 +20,5 @@ String removeTrailingZero(double n) {
 
   return formatter.format(n);
 }
+
+String getEnumValue(e) => e.toString().split('.').last;

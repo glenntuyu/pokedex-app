@@ -1,0 +1,1 @@
+export 'pokedex_pagination_param.dart';

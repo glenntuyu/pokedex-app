@@ -9,20 +9,20 @@ sealed class HomeState extends Equatable {
 
 final class HomeInitial extends HomeState {}
 
-final class GetListPokemonLoading extends HomeState {}
+final class GetPokedexLoading extends HomeState {}
 
-final class GetListPokemonLoaded extends HomeState {
-  final BaseListDataView<PokemonCardDataView> result;
+final class GetPokedexLoaded extends HomeState {
+  final BaseListDataView<PokemonCardDataView> data;
 
-  const GetListPokemonLoaded({
-    required this.result
+  const GetPokedexLoaded({
+    required this.data
   });
 }
 
-final class GetListPokemonError extends HomeState {
+final class GetPokedexError extends HomeState {
   final String message;
 
-  const GetListPokemonError({
+  const GetPokedexError({
     required this.message,
   });
 }

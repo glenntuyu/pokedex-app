@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex_app/config/colors.dart';
 import 'package:pokedex_app/config/image.dart';
 import 'package:pokedex_app/core/domain/entity/pokemon_card_data_view.dart';
 import 'package:pokedex_app/feature/home/presentation/widget/pokemon_image.dart';
@@ -46,7 +47,7 @@ class PokemonCard extends StatelessWidget {
                 child: Stack(
                   children: [
                     _buildPokeballDecoration(height: itemHeight),
-                    _buildPokemon(height: itemHeight),
+                    // _buildPokemon(height: itemHeight),
                     _buildPokemonNumber(),
                     _CardContent(pokemon),
                   ],
@@ -126,7 +127,7 @@ class _CardContent extends StatelessWidget {
                   fontSize: 14,
                   height: 0.7,
                   fontWeight: FontWeight.bold,
-                  color: Theme.of(context).backgroundColor,
+                  color: AppColors.whiteGrey,
                 ),
               ),
             ),

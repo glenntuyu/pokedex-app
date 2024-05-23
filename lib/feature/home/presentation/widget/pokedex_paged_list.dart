@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
-import 'package:pokedex_app/core/domain/entity/pokemon_card_data_view.dart';
 import 'package:pokedex_app/feature/home/presentation/presentation.dart';
 
 import '../../../../core/core.dart';

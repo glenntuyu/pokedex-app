@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:pokedex_app/core/core.dart';
+import 'package:pokedex_app/core/presentation/extension/integer_extension.dart';
 import 'package:pokedex_app/feature/home/presentation/widget/pokedex_paged_list.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 
@@ -120,21 +121,24 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _onBlocStateChange(HomeState state) {
-    if (state is GetListPokemonLoaded) {
-      _onListPokemonLoaded(state);
-    } else if (state is GetListPokemonError) {
+    if (state is GetPokedexLoaded) {
+      _onPokedexLoaded(state);
+    } else if (state is GetPokedexError) {
       _showSnackbarError(state.message);
     }
   }
 
-  void _onListPokemonLoaded(GetListPokemonLoaded state) {
-    final isLastPage = state.result.next.isNullOrEmpty;
+  void _onPokedexLoaded(GetPokedexLoaded state) {
+    final isLastPage = state.data.next.isNullOrEmpty;
 
     if (isLastPage) {
-      _pagingController.appendLastPage(state.result.results);
+      _pagingController.appendLastPage(state.data.results);
     } else {
-        final nextPageKey = 1 + 1;
-        _pagingController.appendPage(state.result.results, nextPageKey);
+        final offset = int.tryParse(state.data.next?.getParam(ApiConstant.offset) ?? '');
+
+        if (offset != null) {
+          _pagingController.appendPage(state.data.results, offset.getPage());
+        }
     }
   }
 

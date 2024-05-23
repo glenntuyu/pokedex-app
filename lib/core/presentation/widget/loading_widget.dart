@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
+import 'package:pokedex_app/config/image.dart';
 
 import '../../../../core/presentation/extension/extension.dart';
 
@@ -14,11 +14,14 @@ class LoadingWidget extends StatelessWidget {
       height: context.height / 2,
       width: context.width,
       child: Center(
-        child: LottieBuilder.asset(
-          'assets/lottie/loading.json',
-          height: 100,
-        ),
+        child: _buildLoading(),
       ),
     );
   }
+}
+
+Widget _buildLoading() {
+  return const Center(
+    child: Image(image: AppImages.pikloader),
+  );
 }

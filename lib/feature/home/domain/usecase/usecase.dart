@@ -1,0 +1,1 @@
+export 'get_pokedex_use_case.dart';
