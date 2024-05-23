@@ -11,22 +11,22 @@ part 'home_state.dart';
 @injectable
 class HomeCubit extends Cubit<HomeState> {
 
-  BaseListDataView<PokemonCardDataView>? listPokemon;
+  BaseListDataView<PokemonCardDataView>? pokedex;
 
   HomeCubit() : super(HomeInitial());
 
 
-  void getListPokemon({int page = -1}) async {
+  void getPokedex({int page = -1}) async {
     emit(GetListPokemonLoading());
 
     await Future.delayed(const Duration(seconds: 3));
-    listPokemon = const BaseListModel(
+    pokedex = const BaseListModel(
       count: 1302, 
       next: "https://pokeapi.co/api/v2/pokemon?offset=30&limit=30", 
       previous: null, 
       results: dummyPokemons,
     ).toBaseListDataView();
 
-    emit(GetListPokemonLoaded(result: listPokemon ?? BaseListDataView(count: null, next: null, previous: null, results: List.empty())));
+    emit(GetListPokemonLoaded(result: pokedex ?? BaseListDataView(count: null, next: null, previous: null, results: List.empty())));
   }
 }

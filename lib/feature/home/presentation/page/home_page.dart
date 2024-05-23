@@ -40,14 +40,14 @@ class _HomePageState extends State<HomePage> {
 
   void _listenPagingController() {
     _pagingController.addPageRequestListener((page) async {
-      _fetchTopRatedData(page: page);
+      _fetchPokedex(page: page);
     });
   }
 
-  void _fetchTopRatedData({
+  void _fetchPokedex({
     required int page,
   }) {
-    context.read<HomeCubit>().getListPokemon(page: page);
+    context.read<HomeCubit>().getPokedex(page: page);
   }
 
   @override
