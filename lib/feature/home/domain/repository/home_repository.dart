@@ -1,13 +1,13 @@
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
-import 'package:pokedex_app/core/data/model/base_item_model.dart';
+import 'package:pokedex/pokedex.dart';
 
 import '../../../../core/data/data.dart';
 import '../../data/datasource/datasource.dart';
 import '../param/param.dart';
 
 abstract class HomeRepository {
-  Future<Either<Failure, BaseListModel<BaseItemModel>>> getPokedex(
+  Future<Either<Failure, BaseListModel<Pokemon>>> getPokedex(
     PokedexPaginationParam param,
   );
 }
@@ -21,7 +21,7 @@ class HomeRepositoryImpl implements HomeRepository {
   });
 
   @override
-  Future<Either<Failure, BaseListModel<BaseItemModel>>> getPokedex(
+  Future<Either<Failure, BaseListModel<Pokemon>>> getPokedex(
     PokedexPaginationParam param,
   ) {
     return RepositoryUtil.catchOrThrow(
@@ -29,7 +29,16 @@ class HomeRepositoryImpl implements HomeRepository {
         final response = await remoteDataSource.getPokedex(
           param,
         );
-        return response;
+
+        final pokedex = await Future.wait(response.results
+            .map((e) => remoteDataSource.getPokemonByUrl(e.url ?? '')));
+
+        return BaseListModel(
+          count: response.count, 
+          next: response.next, 
+          previous: response.previous, 
+          results: pokedex,
+        );
       },
     );
   }

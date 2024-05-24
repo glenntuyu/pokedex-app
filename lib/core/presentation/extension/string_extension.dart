@@ -11,6 +11,12 @@ extension StringExtension2 on String {
     Uri uri = Uri.dataFromString(this);
     return uri.queryParameters[param] ?? '';
   }
+
+  String replaceGenderSuffixes() {
+    String name = this.replaceAll(RegExp(r'-(male|m)'), ' \u2642');
+    name = name.replaceAll(RegExp(r'-(female|f)'), ' \u2640');
+    return name;
+  }
 }
 
 String removeTrailingZero(double n) {
