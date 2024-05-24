@@ -61,13 +61,7 @@ class _HomePageState extends State<HomePage> {
 
   AppBar _appBar() {
     return AppBar(
-      leading: const BackButton(), 
-      title: Text(
-        'Pokedex',
-        style: context.titleMedium?.copyWith(
-          fontWeight: FontWeight.bold,
-        ),
-      ),
+      title: _sectionTitle('Pokedex'),
       centerTitle: true,
       leadingWidth: 40,
       automaticallyImplyLeading: false,
@@ -94,9 +88,6 @@ class _HomePageState extends State<HomePage> {
 
   List<Widget> _pokedex() {
     return [
-      SliverToBoxAdapter(
-        child: _sectionTitle('Pokedex'),
-      ),
       PokedexPagedList(
         onTap: _navigateToDetail,
         pagingController: _pagingController,

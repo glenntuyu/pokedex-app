@@ -3,6 +3,7 @@ import 'package:pokedex_app/config/colors.dart';
 import 'package:pokedex_app/config/image.dart';
 import 'package:pokedex_app/core/domain/entity/pokemon_card_data_view.dart';
 import 'package:pokedex_app/feature/home/presentation/widget/pokemon_image.dart';
+import 'package:pokedex_app/feature/home/presentation/widget/pokemon_type.dart';
 
 typedef OnCardTap = Function(PokemonCardDataView data);
 
@@ -47,7 +48,7 @@ class PokemonCard extends StatelessWidget {
                 child: Stack(
                   children: [
                     _buildPokeballDecoration(height: itemHeight),
-                    // _buildPokemon(height: itemHeight),
+                    _buildPokemon(height: itemHeight),
                     _buildPokemonNumber(),
                     _CardContent(pokemon),
                   ],
@@ -94,7 +95,7 @@ class PokemonCard extends StatelessWidget {
       right: 14,
       child: Text(
         pokemon.number,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 14,
           fontWeight: FontWeight.bold,
           color: Colors.black12,
@@ -114,7 +115,7 @@ class _CardContent extends StatelessWidget {
     return Align(
       alignment: Alignment.centerLeft,
       child: Padding(
-        padding: EdgeInsets.fromLTRB(16, 24, 16, 16),
+        padding: const EdgeInsets.fromLTRB(16, 24, 16, 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.max,
@@ -123,7 +124,7 @@ class _CardContent extends StatelessWidget {
               tag: pokemon.number + pokemon.name,
               child: Text(
                 pokemon.name,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 14,
                   height: 0.7,
                   fontWeight: FontWeight.bold,
@@ -131,23 +132,23 @@ class _CardContent extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 10),
-            // ..._buildTypes(context),
+            const SizedBox(height: 10),
+            ..._buildTypes(context),
           ],
         ),
       ),
     );
   }
 
-//   List<Widget> _buildTypes(BuildContext context) {
-//     return pokemon.types
-//         .take(2)
-//         .map(
-//           (type) => Padding(
-//             padding: EdgeInsets.only(bottom: 6),
-//             child: PokemonType(type),
-//           ),
-//         )
-//         .toList();
-//   }
+  List<Widget> _buildTypes(BuildContext context) {
+    return pokemon.types
+        .take(2)
+        .map(
+          (type) => Padding(
+            padding: const EdgeInsets.only(bottom: 6),
+            child: PokemonType(type),
+          ),
+        )
+        .toList();
+  }
 }

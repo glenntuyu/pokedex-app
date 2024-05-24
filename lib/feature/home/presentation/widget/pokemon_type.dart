@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex_app/config/colors.dart';
 import 'package:pokedex_app/core/domain/entity/pokemon_types.dart';
 import 'package:pokedex_app/feature/home/presentation/widget/spacer.dart';
 
@@ -18,17 +19,19 @@ class PokemonType extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var bgColor = Theme.of(context).backgroundColor;
+    var bgColor = Theme.of(context).colorScheme.background;
     return Material(
       color: Colors.transparent,
       child: Container(
-        padding: EdgeInsets.symmetric(
-          horizontal: large ? 19 : 12,
-          vertical: large ? 6 : 4,
+        padding: EdgeInsets.only(
+          left: large ? 22 : 12,
+          top: large ? 8 : 6,
+          right: large ? 19 : 8,
+          bottom: large ? 6 : 4,
         ),
         decoration: ShapeDecoration(
-          shape: StadiumBorder(),
-          color: (colored ? type.color : bgColor).withOpacity(0.2),
+          shape: const StadiumBorder(),
+          color: (colored ? type.color : AppColors.whiteGrey).withOpacity(0.2),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -37,10 +40,10 @@ class PokemonType extends StatelessWidget {
               type.value,
               textScaleFactor: 1,
               style: TextStyle(
-                  fontSize: large ? 12 : 8,
+                  fontSize: large ? 12 : 9,
                   height: 0.8,
                   fontWeight: large ? FontWeight.bold : FontWeight.normal,
-                  color: colored ? type.color : bgColor),
+                  color: colored ? type.color : AppColors.whiteGrey),
               textAlign: TextAlign.center,
             ),
             HSpacer(5),
@@ -48,7 +51,7 @@ class PokemonType extends StatelessWidget {
               extra,
               textScaleFactor: 1,
               style: TextStyle(
-                fontSize: large ? 12 : 8,
+                fontSize: large ? 12 : 9,
                 height: 0.8,
                 fontWeight: large ? FontWeight.bold : FontWeight.normal,
                 color: colored ? type.color : bgColor,
