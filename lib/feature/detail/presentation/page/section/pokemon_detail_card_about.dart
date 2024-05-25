@@ -80,21 +80,61 @@ class _PokemonAbout extends StatelessWidget {
       },
       child: Column(
         children: <Widget>[
-          const SizedBox(height: 28),
-          _buildHeightWeight(
-            pokemon.height.dmToCm(), 
-            pokemon.weight.hgToKg(), 
-            context, 
-            isDark,
-          ),
-          const SizedBox(height: 31),
+          _buildAbout(pokemon, isDark),
+          const SizedBox(height: 10),
           _buildBreeding(species.genderRate, species.eggGroups, isDark),
-          const SizedBox(height: 35),
-          _buildLocation(),
-          const SizedBox(height: 26),
-          _buildTraining(pokemon.baseExperience?.toDouble() ?? -1, isDark),
+          const SizedBox(height: 30),
+          _buildTraining(pokemon.baseExperience ?? -1, isDark),
         ],
       ),
+    );
+  }
+
+  Widget _buildAbout(Pokemon pokemon, bool isDark) {
+    return Column(
+      children: [
+        Row(
+          children: <Widget>[
+            Expanded(child: _Label('Height', isDark)),
+            Expanded(
+              flex: 3,
+              child: Text(
+                pokemon.height.dmToCm(),
+                style: const TextStyle(height: 0.8),
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 18),
+        Row(
+          children: <Widget>[
+            Expanded(child: _Label('Weight', isDark)),
+            Expanded(
+              flex: 3,
+              child: Text(
+                pokemon.weight.hgToKg(),
+                style: const TextStyle(height: 0.8),
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 18),
+        Row(
+          children: <Widget>[
+            Expanded(child: _Label('Abilities', isDark)),
+            Expanded(
+              flex: 3,
+              child: Text(
+                pokemon.abilities
+                    .map((e) => e.ability.name.capitalize().capitalizeKebabCase())
+                    .join(', '),
+                style: const TextStyle(height: 0.8),
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 18),
+      ],
     );
   }
 
@@ -209,14 +249,14 @@ class _PokemonAbout extends StatelessWidget {
     );
   }
 
-  Widget _buildTraining(double baseExp, bool isDark) {
+  Widget _buildTraining(int baseExp, bool isDark) {
     return _ContentSection(
       label: 'Training',
       children: [
         Row(
           children: <Widget>[
             Expanded(flex: 1, child: _Label('Base EXP', isDark)),
-            Expanded(flex: 3, child: Text('$baseExp')),
+            Expanded(flex: 3, child: Text(baseExp.toString())),
           ],
         ),
       ],
