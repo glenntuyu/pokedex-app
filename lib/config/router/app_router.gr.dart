@@ -20,7 +20,16 @@ abstract class _$AppRouter extends RootStackRouter {
         routeData: routeData,
         child: WrappedRoute(child: const HomePage()),
       );
-    }
+    },
+    PokemonDetailRoute.name: (routeData) {
+      final pathParams = routeData.inheritedPathParams;
+      final args = routeData.argsAs<PokemonDetailRouteArgs>(
+          orElse: () => PokemonDetailRouteArgs(id: pathParams.getInt('id')));
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: WrappedRoute(child: PokemonDetailPage(id: args.id)),
+      );
+    },
   };
 }
 
@@ -36,4 +45,34 @@ class HomeRoute extends PageRouteInfo<void> {
   static const String name = 'HomeRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [PokemonDetailPage]
+class PokemonDetailRoute extends PageRouteInfo<PokemonDetailRouteArgs> {
+  PokemonDetailRoute({
+    required int id,
+    List<PageRouteInfo>? children,
+  }) : super(
+          PokemonDetailRoute.name,
+          args: PokemonDetailRouteArgs(id: id),
+          rawPathParams: {'id': id},
+          initialChildren: children,
+        );
+
+  static const String name = 'PokemonDetailRoute';
+
+  static const PageInfo<PokemonDetailRouteArgs> page =
+      PageInfo<PokemonDetailRouteArgs>(name);
+}
+
+class PokemonDetailRouteArgs {
+  const PokemonDetailRouteArgs({required this.id});
+
+  final int id;
+
+  @override
+  String toString() {
+    return 'PokemonDetailRouteArgs{id: $id}';
+  }
 }

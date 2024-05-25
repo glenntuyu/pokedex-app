@@ -48,6 +48,9 @@ extension XString on String {
     return this;
   }
 
+  String capitalizeKebabCase() =>
+      split('-').map((e) => e.capitalize()).join(' ');
+
   double parseDouble([double defaultValue = 0.0]) {
     return double.tryParse(replaceAll(RegExp(r'[^0-9\.]'), '')) ?? defaultValue;
   }

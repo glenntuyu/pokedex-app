@@ -12,6 +12,7 @@ class AppImages {
   static const female = _Image('female.png');
   static const squirtle = _Image('squirtle.png');
   static const pikloader = _Image('pika_loader.gif');
+  static const dotted = _Image('dotted.png');
 
   static Future precacheAssets(BuildContext context) async {
     await precacheImage(pokeball, context);

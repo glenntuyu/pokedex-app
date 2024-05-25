@@ -13,7 +13,7 @@ extension StringExtension2 on String {
   }
 
   String replaceGenderSuffixes() {
-    String name = this.replaceAll(RegExp(r'-(male|m)'), ' \u2642');
+    String name = replaceAll(RegExp(r'-(male|m)'), ' \u2642');
     name = name.replaceAll(RegExp(r'-(female|f)'), ' \u2640');
     return name;
   }

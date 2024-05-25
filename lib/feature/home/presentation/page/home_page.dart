@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
+import 'package:pokedex_app/config/router/app_router.dart';
 import 'package:pokedex_app/core/core.dart';
 import 'package:pokedex_app/core/presentation/extension/integer_extension.dart';
 import 'package:pokedex_app/feature/home/presentation/widget/pokedex_paged_list.dart';
@@ -107,8 +108,10 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  void _navigateToDetail(PokemonCardDataView post) {
-    
+  void _navigateToDetail(PokemonCardDataView data) {
+    context.router.push(
+      PokemonDetailRoute(id: data.id),
+    );
   }
 
   void _onBlocStateChange(HomeState state) {

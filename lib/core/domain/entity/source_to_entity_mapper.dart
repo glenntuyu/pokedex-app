@@ -6,6 +6,7 @@ import 'package:pokedex_app/core/presentation/extension/integer_extension.dart';
 
 extension XPokemon on Pokemon {
   PokemonCardDataView toPokemonCardDataView() => PokemonCardDataView(
+        id: id,
         number: id.getDexId(),
         name: name.capitalize().replaceGenderSuffixes(),
         image: sprites.frontDefault ?? '',

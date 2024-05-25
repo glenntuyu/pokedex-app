@@ -33,7 +33,7 @@ class PokemonCard extends StatelessWidget {
               BoxShadow(
                 color: pokemon.color.withOpacity(0.4),
                 blurRadius: 15,
-                offset: Offset(0, 8),
+                offset: const Offset(0, 8),
               ),
             ],
           ),
@@ -47,8 +47,8 @@ class PokemonCard extends StatelessWidget {
                 highlightColor: Colors.white10,
                 child: Stack(
                   children: [
-                    _buildPokeballDecoration(height: itemHeight),
-                    _buildPokemon(height: itemHeight),
+                    // _buildPokeballDecoration(height: itemHeight),
+                    // _buildPokemon(height: itemHeight),
                     _buildPokemonNumber(),
                     _CardContent(pokemon),
                   ],
