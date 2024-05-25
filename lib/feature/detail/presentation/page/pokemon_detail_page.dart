@@ -7,6 +7,7 @@ import 'package:pokedex/pokedex.dart';
 import 'package:pokedex_app/config/colors.dart';
 import 'package:pokedex_app/config/image.dart';
 import 'package:pokedex_app/core/core.dart';
+import 'package:pokedex_app/core/domain/entity/evolution_data_view.dart';
 import 'package:pokedex_app/core/domain/entity/pokemon_detail_data_view.dart';
 import 'package:pokedex_app/core/domain/entity/pokemon_types.dart';
 import 'package:pokedex_app/core/presentation/extension/integer_extension.dart';
@@ -16,7 +17,8 @@ import 'package:pokedex_app/feature/detail/presentation/page/state_provider.dart
 import 'package:pokedex_app/feature/detail/presentation/widget/animated_fade.dart';
 import 'package:pokedex_app/feature/detail/presentation/widget/auto_slideup_panel.dart';
 import 'package:pokedex_app/feature/detail/presentation/widget/main_tab_view.dart';
-import 'package:pokedex_app/core/presentation/widget/pokemon_type_widget.dart'; 
+import 'package:pokedex_app/core/presentation/widget/pokemon_type_widget.dart';
+import 'package:pokedex_app/feature/detail/presentation/widget/pokemon_image.dart';
 
 import '../../../../config/di/injection.dart';
 import '../cubit/pokemon_detail_cubit.dart';
@@ -25,6 +27,7 @@ part 'section/background_decoration.dart';
 part 'section/pokemon_detail_card.dart';
 part 'section/pokemon_detail_card_about.dart';
 part 'section/pokemon_detail_card_basestats.dart';
+part 'section/pokemon_detail_card_evolutions.dart';
 
 @RoutePage()
 class PokemonDetailPage extends StatefulWidget implements AutoRouteWrapper {

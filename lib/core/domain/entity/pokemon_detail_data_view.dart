@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/pokedex.dart';
+import 'package:pokedex_app/core/domain/entity/evolution_data_view.dart';
 import 'package:pokedex_app/core/domain/entity/pokemon_types.dart';
 
 class PokemonDetailDataView {
   final Pokemon pokemon;
   final PokemonSpecies pokemonSpecies;
+  final List<EvolutionDataView> evolutions;
   final List<PokemonTypes> types;
 
   const PokemonDetailDataView({
     required this.pokemon,
     required this.pokemonSpecies,
+    required this.evolutions,
     required this.types,
   });
 }

@@ -3,6 +3,7 @@ class ApiConstant {
 
   static const pokemon = 'pokemon';
   static const pokemonSpecies = 'pokemon-species';
+  static const evolutionChain = 'evolution-chain';
 
   
   static const offset = 'offset';

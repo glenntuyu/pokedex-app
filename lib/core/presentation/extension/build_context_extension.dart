@@ -54,4 +54,15 @@ extension XString on String {
   double parseDouble([double defaultValue = 0.0]) {
     return double.tryParse(replaceAll(RegExp(r'[^0-9\.]'), '')) ?? defaultValue;
   }
+
+  int getNumberFromPokemonUrl() {
+    try {
+      final regex = RegExp(r'^https://pokeapi.co/api/v2/.*?/([0-9]+)/$');
+      final match = regex.firstMatch(this);
+      final number = int.parse(match?.group(1) ?? '0');
+      return number;
+    } catch (_) {
+      return 0;
+    }
+  }
 }

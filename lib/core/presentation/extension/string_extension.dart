@@ -5,6 +5,9 @@ extension StringExtension on String? {
   bool get isNullOrEmpty {
     return this == null || this == '';
   }
+
+  String get itemThumbnail =>
+      'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/$this.png';
 }
 
 extension StringExtension2 on String {
