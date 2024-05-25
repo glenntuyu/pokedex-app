@@ -3,7 +3,7 @@ import 'package:pokedex_app/config/colors.dart';
 import 'package:pokedex_app/config/image.dart';
 import 'package:pokedex_app/core/domain/entity/pokemon_card_data_view.dart';
 import 'package:pokedex_app/feature/home/presentation/widget/pokemon_image.dart';
-import 'package:pokedex_app/feature/home/presentation/widget/pokemon_type.dart';
+import 'package:pokedex_app/core/presentation/widget/pokemon_type_widget.dart';
 
 typedef OnCardTap = Function(PokemonCardDataView data);
 
@@ -146,7 +146,7 @@ class _CardContent extends StatelessWidget {
         .map(
           (type) => Padding(
             padding: const EdgeInsets.only(bottom: 6),
-            child: PokemonType(type),
+            child: PokemonTypeWidget(type),
           ),
         )
         .toList();

@@ -36,10 +36,10 @@ class _PokemonInfoCardState extends State<_PokemonInfoCard> {
               label: 'About',
               child: _PokemonAbout(widget.pokemonDetail),
             ),
-            // MainTabData(
-            //   label: 'Base Stats',
-            //   child: _PokemonBaseStats(widget.pokemonDetail),
-            // ),
+            MainTabData(
+              label: 'Base Stats',
+              child: _PokemonBaseStats(widget.pokemonDetail),
+            ),
             // MainTabData(
             //   label: 'Evolution',
             //   child: _PokemonEvolution(widget.pokemonDetail),

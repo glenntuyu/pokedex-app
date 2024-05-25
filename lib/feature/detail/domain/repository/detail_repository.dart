@@ -3,6 +3,7 @@ import 'package:injectable/injectable.dart';
 import 'package:pokedex/pokedex.dart';
 import 'package:pokedex_app/core/core.dart';
 import 'package:pokedex_app/core/domain/entity/pokemon_detail_data_view.dart';
+import 'package:pokedex_app/core/domain/entity/pokemon_types.dart';
 
 import '../../../../core/data/data.dart';
 import '../../data/datasource/datasource.dart';
@@ -26,7 +27,11 @@ class PokemonDetailRepositoryImpl implements PokemonDetailRepository {
         Pokemon pokemon = await remoteDataSource.getPokemon(id);
         PokemonSpecies pokemonSpecies = await remoteDataSource.getPokemonSpecies(id);
 
-        return PokemonDetailDataView(pokemon: pokemon, pokemonSpecies: pokemonSpecies);
+        return PokemonDetailDataView(
+          pokemon: pokemon, 
+          pokemonSpecies: pokemonSpecies,
+          types: pokemon.types.map((e) => PokemonTypesX.parse(e.type.name)).toList(),
+        );
       },
     );
   }
