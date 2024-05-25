@@ -51,7 +51,11 @@ class _DottedDecoration extends StatelessWidget {
 }
 
 class _BackgroundDecoration extends StatefulWidget {
-  const _BackgroundDecoration();
+  final PokemonDetailDataView pokemonDetail;
+  
+  const _BackgroundDecoration({
+    required this.pokemonDetail,
+  });
 
   @override
   State<_BackgroundDecoration> createState() => _BackgroundDecorationState();
@@ -60,6 +64,8 @@ class _BackgroundDecoration extends StatefulWidget {
 class _BackgroundDecorationState extends State<_BackgroundDecoration> {
   Animation<double> get slideController => PokemonDetailStateProvider.of(context).slideController;
   Animation<double> get rotateController => PokemonDetailStateProvider.of(context).rotateController;
+
+  PokemonDetailDataView get pokemonDetail => widget.pokemonDetail;
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +83,7 @@ class _BackgroundDecorationState extends State<_BackgroundDecoration> {
     return AnimatedContainer(
         duration: const Duration(milliseconds: 300),
         constraints: const BoxConstraints.expand(),
-        // color: pokemon.color,
+        color: pokemonDetail.color,
       );
   }
 
@@ -98,13 +104,12 @@ class _BackgroundDecorationState extends State<_BackgroundDecoration> {
   }
 
   Widget _buildAppBarPokeballDecoration() {
-    const double mainAppbarPadding = 28;
     final screenSize = MediaQuery.of(context).size;
     final safeAreaTop = MediaQuery.of(context).padding.top;
 
     final pokeSize = screenSize.width * 0.5;
     final appBarHeight = AppBar().preferredSize.height;
-    final iconButtonPadding = mainAppbarPadding;
+    const iconButtonPadding = mainAppearPadding;
     final iconSize = IconTheme.of(context).size ?? 0;
 
     final pokeballTopMargin = -(pokeSize / 2 - safeAreaTop - appBarHeight / 2);

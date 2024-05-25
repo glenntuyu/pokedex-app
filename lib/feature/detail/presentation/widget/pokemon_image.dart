@@ -3,6 +3,7 @@ import 'package:cached_network_image_platform_interface/cached_network_image_pla
 import 'package:flutter/material.dart';
 import 'package:pokedex/pokedex.dart';
 import 'package:pokedex_app/config/image.dart';
+import 'package:pokedex_app/core/data/constant/url_constant.dart';
 
 class PokemonImage extends StatelessWidget {
   static const Size _cacheMaxSize = Size(700, 700);
@@ -26,13 +27,13 @@ class PokemonImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String image = pokemon.sprites.frontDefault ?? '';
+    String image = pokemon.id.getSprite;
     return HeroMode(
       enabled: useHero,
       child: Hero(
         tag: image,
         child: AnimatedPadding(
-          duration: Duration(milliseconds: 600),
+          duration: const Duration(milliseconds: 600),
           curve: Curves.easeOutQuint,
           padding: padding,
           child: CachedNetworkImage(

@@ -29,7 +29,7 @@ class _PokemonBall extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 3),
-        Text(pokemon.name.capitalize()),
+        Text(pokemon.name.capitalize().replaceGenderSuffixes()),
       ],
     );
   }

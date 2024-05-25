@@ -120,7 +120,7 @@ class _PokemonBaseStatsState extends State<_PokemonBaseStats> with SingleTickerP
           ),
           const SizedBox(height: 15),
           Text(
-            'The effectiveness of each type on ${pokemon.name}.',
+            'The effectiveness of each type on ${pokemon.name.capitalize().replaceGenderSuffixes()}.',
             style: TextStyle(color: AppColors.black.withOpacity(0.6)),
           ),
           const SizedBox(height: 15),
