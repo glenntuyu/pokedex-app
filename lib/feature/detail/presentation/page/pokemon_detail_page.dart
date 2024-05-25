@@ -27,7 +27,7 @@ part 'section/background_decoration.dart';
 part 'section/pokemon_detail_card.dart';
 part 'section/pokemon_detail_card_about.dart';
 part 'section/pokemon_detail_card_basestats.dart';
-part 'section/pokemon_detail_card_evolutions.dart';
+part 'section/pokemon_detail_card_evolution.dart';
 
 @RoutePage()
 class PokemonDetailPage extends StatefulWidget implements AutoRouteWrapper {
