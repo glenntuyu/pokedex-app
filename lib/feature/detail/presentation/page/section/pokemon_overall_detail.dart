@@ -14,9 +14,6 @@ class _PokemonOverallDetail extends StatefulWidget {
 class _PokemonOverallDetailState extends State<_PokemonOverallDetail> with TickerProviderStateMixin {
   Pokemon get pokemon => widget.pokemonDetail.pokemon;
 
-  static const double _pokemonSliderViewportFraction = 0.56;
-  static const int _endReachedThreshold = 4;
-
   final GlobalKey _currentTextKey = GlobalKey();
   final GlobalKey _targetTextKey = GlobalKey();
 
