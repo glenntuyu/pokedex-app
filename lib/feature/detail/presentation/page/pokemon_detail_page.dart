@@ -85,7 +85,7 @@ class _PokemonDetailPageState extends State<PokemonDetailPage>
 
   @override
   Widget build(BuildContext context) {
-    return PokemonInfoStateProvider(
+    return PokemonDetailStateProvider(
       slideController: _slideController,
       rotateController: _rotateController,
       child: Scaffold(

@@ -65,7 +65,7 @@ class _PokemonBaseStatsState extends State<_PokemonBaseStats> with SingleTickerP
   PokemonDetailDataView get pokemonDetail => widget.pokemonDetail;
   Pokemon get pokemon => pokemonDetail.pokemon;
 
-  AnimationController get slideController => PokemonInfoStateProvider.of(context).slideController;
+  AnimationController get slideController => PokemonDetailStateProvider.of(context).slideController;
 
   @override
   void initState() {

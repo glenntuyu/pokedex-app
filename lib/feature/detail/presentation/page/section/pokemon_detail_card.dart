@@ -14,7 +14,7 @@ class _PokemonInfoCard extends StatefulWidget {
 }
 
 class _PokemonInfoCardState extends State<_PokemonInfoCard> {
-  AnimationController get slideController => PokemonInfoStateProvider.of(context).slideController;
+  AnimationController get slideController => PokemonDetailStateProvider.of(context).slideController;
 
   @override
   Widget build(BuildContext context) {
@@ -44,13 +44,6 @@ class _PokemonInfoCardState extends State<_PokemonInfoCard> {
               label: 'Evolution',
               child: _PokemonEvolution(widget.pokemonDetail),
             ),
-            // const MainTabData(
-            //   label: 'Moves',
-            //   child: Align(
-            //     alignment: Alignment.topCenter,
-            //     child: Text('Under development'),
-            //   ),
-            // ),
           ],
         ),
     );

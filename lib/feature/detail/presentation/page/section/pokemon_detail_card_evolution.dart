@@ -79,7 +79,7 @@ class _PokemonEvolutionState extends State<_PokemonEvolution> {
 
   @override
   Widget build(BuildContext context) {
-    final slideController = PokemonInfoStateProvider.of(context).slideController;
+    final slideController = PokemonDetailStateProvider.of(context).slideController;
 
     return AnimatedBuilder(
       animation: slideController,

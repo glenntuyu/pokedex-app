@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 
-class PokemonInfoStateProvider extends InheritedWidget {
+class PokemonDetailStateProvider extends InheritedWidget {
   final AnimationController slideController;
   final AnimationController rotateController;
 
-  const PokemonInfoStateProvider({
+  const PokemonDetailStateProvider({
     Key? key,
     required this.slideController,
     required this.rotateController,
     required Widget child,
   }) : super(child: child);
 
-  static PokemonInfoStateProvider of(BuildContext context) {
-    final result = context.dependOnInheritedWidgetOfExactType<PokemonInfoStateProvider>();
+  static PokemonDetailStateProvider of(BuildContext context) {
+    final result = context.dependOnInheritedWidgetOfExactType<PokemonDetailStateProvider>();
 
     return result!;
   }
 
   @override
-  bool updateShouldNotify(covariant PokemonInfoStateProvider oldWidget) => false;
+  bool updateShouldNotify(covariant PokemonDetailStateProvider oldWidget) => false;
 }

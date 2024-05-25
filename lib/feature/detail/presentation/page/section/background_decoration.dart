@@ -58,8 +58,8 @@ class _BackgroundDecoration extends StatefulWidget {
 }
 
 class _BackgroundDecorationState extends State<_BackgroundDecoration> {
-  Animation<double> get slideController => PokemonInfoStateProvider.of(context).slideController;
-  Animation<double> get rotateController => PokemonInfoStateProvider.of(context).rotateController;
+  Animation<double> get slideController => PokemonDetailStateProvider.of(context).slideController;
+  Animation<double> get rotateController => PokemonDetailStateProvider.of(context).rotateController;
 
   @override
   Widget build(BuildContext context) {

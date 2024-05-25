@@ -62,7 +62,7 @@ class _PokemonAbout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final slideController = PokemonInfoStateProvider.of(context).slideController;
+    final slideController = PokemonDetailStateProvider.of(context).slideController;
     var isDark = false;
     Pokemon pokemon = pokemonDetail.pokemon;
     PokemonSpecies species = pokemonDetail.pokemonSpecies;
