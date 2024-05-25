@@ -27,7 +27,7 @@ class PokemonImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String image = pokemon.id.getSprite;
+    String image = pokemon.id.getSprite2;
     return HeroMode(
       enabled: useHero,
       child: Hero(
