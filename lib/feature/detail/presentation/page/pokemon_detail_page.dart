@@ -106,7 +106,10 @@ class _PokemonDetailPageState extends State<PokemonDetailPage>
               );
             }
 
-            return const LoadingWidget();
+            return Container(
+              alignment: Alignment.center,
+              child: const LoadingWidget(),
+            );
           },
         ),
       ),
