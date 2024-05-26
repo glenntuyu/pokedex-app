@@ -23,9 +23,10 @@ class PokemonCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constrains) {
-        final itemHeight = constrains.maxHeight;
+        const itemHeight = 106.0;
 
         return Container(
+          height: itemHeight,
           decoration: BoxDecoration(
             color: pokemon.color,
             borderRadius: BorderRadius.circular(15),
@@ -47,8 +48,8 @@ class PokemonCard extends StatelessWidget {
                 highlightColor: Colors.white10,
                 child: Stack(
                   children: [
-                    // _buildPokeballDecoration(height: itemHeight),
-                    // _buildPokemon(height: itemHeight),
+                    _buildPokeballDecoration(height: itemHeight),
+                    _buildPokemon(height: itemHeight),
                     _buildPokemonNumber(),
                     _CardContent(pokemon),
                   ],

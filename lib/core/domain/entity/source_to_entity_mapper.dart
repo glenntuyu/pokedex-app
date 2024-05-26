@@ -1,5 +1,6 @@
 import 'package:pokedex/pokedex.dart';
 import 'package:pokedex_app/core/core.dart';
+import 'package:pokedex_app/core/data/constant/url_constant.dart';
 import 'package:pokedex_app/core/domain/entity/base_list_data_view.dart';
 import 'package:pokedex_app/core/domain/entity/pokemon_types.dart';
 import 'package:pokedex_app/core/presentation/extension/integer_extension.dart';
@@ -9,7 +10,7 @@ extension XPokemon on Pokemon {
         id: id,
         number: id.getDexId(),
         name: name.capitalize().replaceGenderSuffixes(),
-        image: sprites.frontDefault ?? '',
+        image: id.getSprite2,
         types: types.map((e) => PokemonTypesX.parse(e.type.name)).toList(),
       );
 }

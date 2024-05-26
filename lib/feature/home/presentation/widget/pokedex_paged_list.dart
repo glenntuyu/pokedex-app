@@ -35,8 +35,8 @@ class PokedexPagedList extends StatelessWidget {
           },
         ),
         crossAxisCount: 2,
-        mainAxisSpacing: 24,
-        crossAxisSpacing: 24,
+        mainAxisSpacing: 10,
+        crossAxisSpacing: 10,
       ),
     );
   }
