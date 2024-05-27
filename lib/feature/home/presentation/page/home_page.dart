@@ -6,6 +6,7 @@ import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:pokedex_app/config/router/app_router.dart';
 import 'package:pokedex_app/core/core.dart';
 import 'package:pokedex_app/core/presentation/extension/integer_extension.dart';
+import 'package:pokedex_app/core/presentation/widget/main_app_bar.dart';
 import 'package:pokedex_app/feature/home/presentation/widget/pokedex_paged_list.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 
@@ -33,6 +34,8 @@ class _HomePageState extends State<HomePage> {
     firstPageKey: 1,
   );
 
+  final String pokedexTitle = 'Pok\u00e9dex';
+
   @override
   void initState() {
     _listenPagingController();
@@ -55,36 +58,38 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _appBar(),
-      body: _body(),
+      body: _content(),
     );
   }
 
-  AppBar _appBar() {
-    return AppBar(
-      title: _sectionTitle('Pokedex'),
-      centerTitle: true,
-      leadingWidth: 40,
-      automaticallyImplyLeading: false,
-      surfaceTintColor: Colors.transparent,
-    );
-  }
-
-  Widget _body() {
+  Widget _content() {
     return BlocListener<HomeCubit, HomeState>(
       listener: (context, state) {
         _onBlocStateChange(state);
       },
-      child: CustomScrollView(
-        slivers: [
-          MultiSliver(
-            children: [
-              const Gap(16),
-              ..._pokedex(),
-            ],
-          ),
-        ],
-      ),
+      child: CustomScrollView(slivers: [
+        _buildAppBar(),
+        _body(),
+      ]),
+    );
+  }
+
+  Widget _buildAppBar() {
+    return Builder(builder: (context) {
+      return MainSliverAppBar(
+        context: context,
+        title: pokedexTitle,
+        surfaceTintColor: Colors.transparent,
+      );
+    });
+  }
+
+  Widget _body() {
+    return MultiSliver(
+      children: [
+        const Gap(16),
+        ..._pokedex(),
+      ],
     );
   }
 
@@ -95,15 +100,6 @@ class _HomePageState extends State<HomePage> {
         pagingController: _pagingController,
       ),
     ];
-  }
-
-  Widget _sectionTitle(String text) {
-    return Text(
-      text,
-      style: context.titleLarge?.copyWith(
-        fontWeight: FontWeight.bold,
-      ),
-    );
   }
 
   void _navigateToDetail(PokemonCardDataView data) {

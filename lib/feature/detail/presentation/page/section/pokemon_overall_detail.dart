@@ -75,7 +75,6 @@ class _PokemonOverallDetailState extends State<_PokemonOverallDetail> with Ticke
 
   AppBar _buildAppBar() {
     return MainAppBar(
-      // A placeholder for easily calculate the translate of the pokemon name
       title: Builder(builder: (context) {
         _calculatePokemonNamePosition();
         return Text(
