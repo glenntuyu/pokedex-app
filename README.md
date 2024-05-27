@@ -1,16 +1,40 @@
-# pokedex_app
+# Pokédex App
 
-A new Flutter project.
+Pokédex App is an application developed using Flutter that provides a Pokemon Database App designed using Clean Architecture principles. It contains features such as home screen with infinite scrolling showing the Pokédex and Pokemon Detail.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+1. **Home Page**
+   - Displays list of Pokemon. (Infinite Scroll)
 
-A few resources to get you started if this is your first Flutter project:
+2. **Pokemon Details**
+   - Provides detailed information about selected Pokemon.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Tech Stacks
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. **Clean Architecture**
+Create a separation of concern between layers into presentation, domain, and data for a modular and scalable codebase.
+   - **Presentation Layer**: Contains UI components and presentation logic.
+   - **Domain Layer**: Defines use cases and business logic independent of UI.
+   - **Data Layer**: Manages data sources, repositories, and external services.
+
+2. **Bloc**
+   - A state management that helps to separate presentation layer from business logic.
+
+3. **Isolate for JSON Parsing**
+   - Efficiently parses JSON data using isolates for better performance.
+
+## Open API
+Pokedex App uses the PokeAPI ("https://pokeapi.co/")
+
+## App preview
+![Home](preview/home.jpeg) 
+![Pokemon Info - About](preview/detail_about.jpeg) 
+![Pokemon Info - Evolution](preview/detail_evolution.jpeg) 
+![Pokemon Info - Stats](preview/detail_stats.jpeg) 
+![Pokemon Info - Stats (Expanded)](preview/detail_expanded.jpeg) 
+![Pokemon Info - Home Dark Mode](preview/home_dark.jpeg)
+![Pokemon Info - About Dark Mode](preview/detail_about_dark.jpeg) 
+![Pokemon Info - Evolution Dark Mode](preview/detail_evolution_dark.jpeg) 
+![Pokemon Info - Stats Dark Mode](preview/detail_stats_dark.jpeg) 
+![Pokemon Info - Stats (Expanded) Dark Mode](preview/detail_expanded_dark.jpeg) 
