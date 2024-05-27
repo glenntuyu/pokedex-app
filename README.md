@@ -27,14 +27,25 @@ Create a separation of concern between layers into presentation, domain, and dat
 ## Open API
 Pokedex App uses the PokeAPI ("https://pokeapi.co/")
 
-## App preview
-![Home](preview/home.jpeg) 
-![Pokemon Info - About](preview/detail_about.jpeg) 
-![Pokemon Info - Evolution](preview/detail_evolution.jpeg) 
-![Pokemon Info - Stats](preview/detail_stats.jpeg) 
-![Pokemon Info - Stats (Expanded)](preview/detail_expanded.jpeg) 
-![Pokemon Info - Home Dark Mode](preview/home_dark.jpeg)
-![Pokemon Info - About Dark Mode](preview/detail_about_dark.jpeg) 
-![Pokemon Info - Evolution Dark Mode](preview/detail_evolution_dark.jpeg) 
-![Pokemon Info - Stats Dark Mode](preview/detail_stats_dark.jpeg) 
-![Pokemon Info - Stats (Expanded) Dark Mode](preview/detail_expanded_dark.jpeg) 
+## Pokédex App Preview
+<p>
+  <img src="preview/home.jpeg" width=200>
+  <img src="preview/detail_about.jpeg" width=200>
+  <img src="preview/detail_evolution.jpeg" width=200>
+</p>
+
+<p>
+  <img src="preview/detail_stats.jpeg" width=200>
+  <img src="preview/detail_expanded.jpeg" width=200>
+</p>
+
+<p>
+  <img src="preview/home_dark.jpeg" width=200>
+  <img src="preview/detail_about_dark.jpeg" width=200>
+  <img src="preview/detail_evolution_dark.jpeg" width=200>
+</p>
+
+<p>
+  <img src="preview/detail_stats_dark.jpeg" width=200>
+  <img src="preview/detail_expanded_dark.jpeg" width=200>
+</p>
