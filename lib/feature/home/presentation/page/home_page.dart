@@ -66,6 +66,7 @@ class _HomePageState extends State<HomePage> {
       centerTitle: true,
       leadingWidth: 40,
       automaticallyImplyLeading: false,
+      surfaceTintColor: Colors.transparent,
     );
   }
 
@@ -97,13 +98,10 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _sectionTitle(String text) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 16, bottom: 16),
-      child: Text(
-        text,
-        style: context.titleLarge?.copyWith(
-          fontWeight: FontWeight.bold,
-        ),
+    return Text(
+      text,
+      style: context.titleLarge?.copyWith(
+        fontWeight: FontWeight.bold,
       ),
     );
   }

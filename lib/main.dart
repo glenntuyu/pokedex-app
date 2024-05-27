@@ -21,8 +21,14 @@ class PokedexApp extends StatelessWidget {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'Pokedex App',
-      theme: FlexThemeData.light(scheme: FlexScheme.blueM3),
-      darkTheme: FlexThemeData.dark(scheme: FlexScheme.blueM3),
+      theme: FlexThemeData.light(
+        scheme: FlexScheme.blueM3, 
+        useMaterial3: true,
+      ),
+      darkTheme: FlexThemeData.dark(
+        scheme: FlexScheme.blueM3,
+        useMaterial3: true,
+      ),
       routerConfig: _appRouter.config(),
     );
   }
