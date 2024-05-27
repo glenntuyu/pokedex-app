@@ -1,8 +1,6 @@
 part of '../pokemon_detail_page.dart';
 
 class _PokemonInfoCard extends StatefulWidget {
-  static const double minCardHeightFraction = 0.54;
-
   final PokemonDetailDataView pokemonDetail;
 
   const _PokemonInfoCard({
@@ -21,8 +19,10 @@ class _PokemonInfoCardState extends State<_PokemonInfoCard> {
     final screenHeight = MediaQuery.of(context).size.height;
     final safeArea = MediaQuery.of(context).padding;
     final appBarHeight = AppBar().preferredSize.height;
+    final orientation = MediaQuery.of(context).orientation;
+    final double minCardHeightFraction = orientation == Orientation.portrait ? 0.54 : 0.35;
 
-    final cardMinHeight = screenHeight * _PokemonInfoCard.minCardHeightFraction;
+    final cardMinHeight = screenHeight * minCardHeightFraction;
     final cardMaxHeight = screenHeight - appBarHeight - safeArea.top;
 
     return AutoSlideUpPanel(

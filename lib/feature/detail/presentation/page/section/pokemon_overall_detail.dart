@@ -59,6 +59,9 @@ class _PokemonOverallDetailState extends State<_PokemonOverallDetail> with Ticke
 
   @override
   Widget build(BuildContext context) {
+    final orientation = MediaQuery.of(context).orientation;
+    final double transformYOffset = orientation == Orientation.portrait ? 0 : -80;
+
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
@@ -68,7 +71,10 @@ class _PokemonOverallDetailState extends State<_PokemonOverallDetail> with Ticke
         const SizedBox(height: 9),
         _buildPokemonTypes(),
         const SizedBox(height: 25),
-        _buildPokemonSlider(),
+        Transform.translate(
+          offset: Offset(0, transformYOffset),
+          child: _buildPokemonSlider(),
+        ),
       ],
     );
   }
@@ -167,10 +173,14 @@ class _PokemonOverallDetailState extends State<_PokemonOverallDetail> with Ticke
   }
 
   Widget _buildPokemonSlider() {
+    final orientation = MediaQuery.of(context).orientation;
+    final double pokeballSizeFraction = orientation == Orientation.portrait ? 0.24 : 0.4;
+    final double pokemonSizeFraction = orientation == Orientation.portrait ? 0.3 : 0.6;
+
     final screenSize = MediaQuery.of(context).size;
-    final sliderHeight = screenSize.height * 0.24;
-    final pokeballSize = screenSize.height * 0.24;
-    final pokemonSize = screenSize.height * 0.3;
+    final sliderHeight = screenSize.height * pokeballSizeFraction;
+    final pokeballSize = screenSize.height * pokeballSizeFraction;
+    final pokemonSize = screenSize.height * pokemonSizeFraction;
 
     return AnimatedFade(
       animation: sliderFadeAnimation,
