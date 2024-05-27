@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex_app/config/colors.dart';
 import 'package:pokedex_app/core/domain/entity/pokemon_types.dart';
 import 'package:pokedex_app/feature/home/presentation/widget/spacer.dart';
 
@@ -18,7 +19,6 @@ class PokemonTypeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var bgColor = Theme.of(context).colorScheme.background;
     return Material(
       color: Colors.transparent,
       child: Container(
@@ -30,7 +30,7 @@ class PokemonTypeWidget extends StatelessWidget {
         ),
         decoration: ShapeDecoration(
           shape: const StadiumBorder(),
-          color: (colored ? type.color : bgColor).withOpacity(0.2),
+          color: (colored ? type.color : AppColors.whiteGrey).withOpacity(0.2),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -42,7 +42,7 @@ class PokemonTypeWidget extends StatelessWidget {
                   fontSize: large ? 12 : 9,
                   height: 0.8,
                   fontWeight: large ? FontWeight.bold : FontWeight.normal,
-                  color: colored ? type.color : bgColor),
+                  color: colored ? type.color : AppColors.whiteGrey),
               textAlign: TextAlign.center,
             ),
             HSpacer(5),
@@ -53,7 +53,7 @@ class PokemonTypeWidget extends StatelessWidget {
                 fontSize: large ? 12 : 9,
                 height: 0.8,
                 fontWeight: large ? FontWeight.bold : FontWeight.normal,
-                color: colored ? type.color : bgColor,
+                color: colored ? type.color : AppColors.whiteGrey,
               ),
             ),
           ],

@@ -1,10 +1,10 @@
 part of '../pokemon_detail_page.dart';
 
 class _Label extends Text {
-  _Label(super.text, bool isDark)
+  _Label(super.text, bool isDarkMode)
       : super(
           style: TextStyle(
-            color: isDark ? AppColors.whiteGrey.withOpacity(0.6) : AppColors.black.withOpacity(0.6),
+            color: isDarkMode ? AppColors.whiteGrey.withOpacity(0.6) : AppColors.black.withOpacity(0.6),
             height: 0.8,
           ),
         );
@@ -63,7 +63,8 @@ class _PokemonAbout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final slideController = PokemonDetailStateProvider.of(context).slideController;
-    var isDark = false;
+    var brightness = MediaQuery.of(context).platformBrightness;
+    bool isDarkMode = brightness == Brightness.dark;
     Pokemon pokemon = pokemonDetail.pokemon;
     PokemonSpecies species = pokemonDetail.pokemonSpecies;
 
@@ -80,22 +81,22 @@ class _PokemonAbout extends StatelessWidget {
       },
       child: Column(
         children: <Widget>[
-          _buildAbout(pokemon, isDark),
+          _buildAbout(pokemon, isDarkMode),
           const SizedBox(height: 10),
-          _buildBreeding(species.genderRate, species.eggGroups, isDark),
+          _buildBreeding(species.genderRate, species.eggGroups, isDarkMode),
           const SizedBox(height: 30),
-          _buildTraining(pokemon.baseExperience ?? -1, isDark),
+          _buildTraining(pokemon.baseExperience ?? -1, isDarkMode),
         ],
       ),
     );
   }
 
-  Widget _buildAbout(Pokemon pokemon, bool isDark) {
+  Widget _buildAbout(Pokemon pokemon, bool isDarkMode) {
     return Column(
       children: [
         Row(
           children: <Widget>[
-            Expanded(child: _Label('Height', isDark)),
+            Expanded(child: _Label('Height', isDarkMode)),
             Expanded(
               flex: 3,
               child: Text(
@@ -108,7 +109,7 @@ class _PokemonAbout extends StatelessWidget {
         const SizedBox(height: 18),
         Row(
           children: <Widget>[
-            Expanded(child: _Label('Weight', isDark)),
+            Expanded(child: _Label('Weight', isDarkMode)),
             Expanded(
               flex: 3,
               child: Text(
@@ -121,7 +122,7 @@ class _PokemonAbout extends StatelessWidget {
         const SizedBox(height: 18),
         Row(
           children: <Widget>[
-            Expanded(child: _Label('Abilities', isDark)),
+            Expanded(child: _Label('Abilities', isDarkMode)),
             Expanded(
               flex: 3,
               child: Text(
@@ -138,12 +139,12 @@ class _PokemonAbout extends StatelessWidget {
     );
   }
 
-  Widget _buildHeightWeight(String height, String weight, BuildContext context, bool isDark) {
+  Widget _buildHeightWeight(String height, String weight, BuildContext context, bool isDarkMode) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        color: Theme.of(context).colorScheme.background,
+        color: Theme.of(context).colorScheme.surface,
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.12),
@@ -159,7 +160,7 @@ class _PokemonAbout extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                _Label('Height', isDark),
+                _Label('Height', isDarkMode),
                 const SizedBox(height: 11),
                 Text(
                   height,
@@ -174,7 +175,7 @@ class _PokemonAbout extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                _Label('Weight', isDark),
+                _Label('Weight', isDarkMode),
                 const SizedBox(height: 11),
                 Text(weight,
                     style: const TextStyle(
@@ -188,7 +189,7 @@ class _PokemonAbout extends StatelessWidget {
     );
   }
 
-  Widget _buildBreeding(int genderRate, List<NamedAPIResource> eggGroups, bool isDark) {
+  Widget _buildBreeding(int genderRate, List<NamedAPIResource> eggGroups, bool isDarkMode) {
     String maleRate = genderRate.maleRate.toString();
     String femaleRate = genderRate.femaleRate.toString();
 
@@ -197,7 +198,7 @@ class _PokemonAbout extends StatelessWidget {
       children: [
         Row(
           children: <Widget>[
-            Expanded(child: _Label('Gender', isDark)),
+            Expanded(child: _Label('Gender', isDarkMode)),
             if (genderRate == -1)
               const Expanded(
                 flex: 3,
@@ -217,7 +218,7 @@ class _PokemonAbout extends StatelessWidget {
         const SizedBox(height: 18),
         Row(
           children: <Widget>[
-            Expanded(child: _Label('Egg Groups', isDark)),
+            Expanded(child: _Label('Egg Groups', isDarkMode)),
             Expanded(
               flex: 2,
               child: Text(
@@ -249,13 +250,13 @@ class _PokemonAbout extends StatelessWidget {
     );
   }
 
-  Widget _buildTraining(int baseExp, bool isDark) {
+  Widget _buildTraining(int baseExp, bool isDarkMode) {
     return _ContentSection(
       label: 'Training',
       children: [
         Row(
           children: <Widget>[
-            Expanded(flex: 1, child: _Label('Base EXP', isDark)),
+            Expanded(flex: 1, child: _Label('Base EXP', isDarkMode)),
             Expanded(flex: 3, child: Text(baseExp.toString())),
           ],
         ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex_app/config/colors.dart';
 import 'package:pokedex_app/core/presentation/extension/size.dart';
 
 const double mainAppBarPadding = 28;
@@ -92,6 +93,7 @@ class MainAppBar extends AppBar {
             padding: const EdgeInsets.symmetric(horizontal: mainAppBarPadding),
             icon: const Icon(Icons.arrow_back),
             onPressed: () => Navigator.of(context).pop(),
+            color: AppColors.whiteGrey,
           ),
           surfaceTintColor: surfaceTintColor,
         );

@@ -93,6 +93,9 @@ class _PokemonBaseStatsState extends State<_PokemonBaseStats> with SingleTickerP
 
   @override
   Widget build(BuildContext context) {
+    var brightness = MediaQuery.of(context).platformBrightness;
+    bool isDarkMode = brightness == Brightness.dark;
+    
     return AnimatedBuilder(
       animation: slideController,
       builder: (context, child) {
@@ -121,7 +124,9 @@ class _PokemonBaseStatsState extends State<_PokemonBaseStats> with SingleTickerP
           const SizedBox(height: 15),
           Text(
             'The effectiveness of each type on ${pokemon.name.capitalize().replaceGenderSuffixes()}.',
-            style: TextStyle(color: AppColors.black.withOpacity(0.6)),
+            style: TextStyle(color: isDarkMode
+                    ? AppColors.whiteGrey.withOpacity(0.6)
+                    : AppColors.black.withOpacity(0.6)),
           ),
           const SizedBox(height: 15),
           _buildEffectivenesses(pokemonDetail.typeEffectiveness),

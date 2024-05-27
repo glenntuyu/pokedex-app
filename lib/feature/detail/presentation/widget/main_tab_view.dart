@@ -23,7 +23,8 @@ class MainTabView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var isDark = false;
+    var brightness = MediaQuery.of(context).platformBrightness;
+    bool isDarkMode = brightness == Brightness.dark;
 
     return DefaultTabController(
       length: tabs.length,
@@ -31,7 +32,7 @@ class MainTabView extends StatelessWidget {
       child: Container(
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.background,
+          color: Theme.of(context).colorScheme.surface,
           borderRadius: const BorderRadius.vertical(top: Radius.circular(30)),
         ),
         child: Column(
@@ -39,7 +40,7 @@ class MainTabView extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             _buildTopAnimatedPadding(),
-            _buildTabBar(isDark),
+            _buildTabBar(isDarkMode),
             _buildTabContent(),
           ],
         ),
@@ -60,10 +61,10 @@ class MainTabView extends StatelessWidget {
     );
   }
 
-  Widget _buildTabBar(bool isDark) {
+  Widget _buildTabBar(bool isDarkMode) {
     return TabBar(
-      labelColor: isDark ? AppColors.whiteGrey : AppColors.black,
-      unselectedLabelColor: isDark ? AppColors.whiteGrey : AppColors.grey,
+      labelColor: isDarkMode ? AppColors.whiteGrey : AppColors.black,
+      unselectedLabelColor: isDarkMode ? AppColors.whiteGrey.withOpacity(0.6) : AppColors.grey,
       labelPadding: const EdgeInsets.symmetric(vertical: 16),
       indicatorSize: TabBarIndicatorSize.label,
       indicatorWeight: 2,

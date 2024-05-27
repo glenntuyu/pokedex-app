@@ -92,7 +92,6 @@ class _PokemonOverallDetailState extends State<_PokemonOverallDetail> with Ticke
   }
 
   Widget _buildPokemonName() {
-    var bgColor = Theme.of(context).colorScheme.background;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 26),
       child: Row(
@@ -111,7 +110,7 @@ class _PokemonOverallDetailState extends State<_PokemonOverallDetail> with Ticke
                     pokemon.name.capitalize().replaceGenderSuffixes(),
                     textKey: _currentTextKey,
                     style: TextStyle(
-                      color: bgColor,
+                      color: AppColors.whiteGrey,
                       fontWeight: FontWeight.w900,
                       fontSize: 36 - (36 - 22) * value,
                     ),
@@ -126,8 +125,8 @@ class _PokemonOverallDetailState extends State<_PokemonOverallDetail> with Ticke
                 animation: textFadeAnimation,
                 child: HeroText(
                     pokemon.id.getDexId(),
-                    style: TextStyle(
-                      color: bgColor,
+                    style: const TextStyle(
+                      color: AppColors.whiteGrey,
                       fontWeight: FontWeight.w900,
                       fontSize: 18,
                     ),
@@ -144,7 +143,7 @@ class _PokemonOverallDetailState extends State<_PokemonOverallDetail> with Ticke
     return AnimatedFade(
       animation: textFadeAnimation,
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 26),
+        padding: const EdgeInsets.symmetric(horizontal: 26),
         child: Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
