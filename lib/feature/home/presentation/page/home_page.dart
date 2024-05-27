@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
+import 'package:pokedex_app/config/image.dart';
 import 'package:pokedex_app/config/router/app_router.dart';
 import 'package:pokedex_app/core/core.dart';
 import 'package:pokedex_app/core/presentation/extension/integer_extension.dart';
@@ -58,7 +59,25 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _content(),
+      body: Stack(
+        children: [
+          _content(),
+          _buildPokeballDecoration(height: 200),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildPokeballDecoration({required double height}) {
+    return Positioned(
+      top: -height * 0.24,
+      right: -height * 0.3,
+      child: Image(
+        image: AppImages.pokeball,
+        width: height,
+        height: height,
+        color: Colors.grey.withOpacity(0.14),
+      ),
     );
   }
 
